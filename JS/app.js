@@ -1,4 +1,4 @@
-
+const mainDiv = document.getElementById('main-div');
 
 const searchPhone = () => {
     //console.log("button clicked");
@@ -10,7 +10,7 @@ const searchPhone = () => {
 
     if (searchText == 'iphone' || searchText == 'samsung' || searchText == 'oppo' || searchText == 'huawei') {
         //  console.log('Phone Found');
-
+        mainDiv.innerHTML='';
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
         fetch(url)
             .then(res => res.json())
@@ -18,17 +18,19 @@ const searchPhone = () => {
 
 
         searchField.value = '';
+        errorMessege.innerHTML='';
 
     }
 
     else {
         errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
         searchField.value = '';
+        mainDiv.innerHTML='';
     }
 
 }
 
-const mainDiv = document.getElementById('main-div');
+
 
 const phoneInfo = (phone) => {
     console.log(phone);
