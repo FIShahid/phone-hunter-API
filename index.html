@@ -14,7 +14,16 @@
     <title>Gadget Galaxy</title>
   </head>
   <body>
-    <h1>Gadget Galaxy</h1>
+    <h1 class="text-center text-success">Gadget Galaxy</h1>
+    <div class="container">
+        <div class="input-group mb-3">
+            <input id="search-field" type="text" class="form-control" placeholder="Search Your Desired Phone.. " aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="search-button" onclick="searchPhone()">Search</button>
+          </div>
+
+          <h4 id="error-messege" class="text-center text-danger"></h4>
+
+    </div>
 
    
     <!-- Option 1: Bootstrap Bundle with Popper -->
