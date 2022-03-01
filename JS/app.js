@@ -19,6 +19,7 @@ const searchPhone = () => {
 
         searchField.value = '';
         errorMessege.innerHTML = '';
+        document.getElementById('show-details').innerHTML='';
 
     }
 
@@ -26,6 +27,7 @@ const searchPhone = () => {
         errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
         searchField.value = '';
         mainDiv.innerHTML = '';
+        
     }
 
 }
@@ -34,18 +36,20 @@ const searchPhone = () => {
 
 const phoneInfo = (phone) => {
    // console.log(phone);
-    const twentyPhone = phone.slice(0,20)
-    phone.forEach(phoneList => {
-        //console.log(phoneList.image);
+   
+   const phoneList = phone.slice(0,20);
+    phoneList.forEach(phones => {
+        //console.log(phoneList);
         const div = document.createElement('div');
+        
         div.classList.add('col-lg-4')
         div.innerHTML = `
         <div class="card" style="width: 18rem;">
-             <img src="${phoneList.image}" class="card-img-top" alt="...">
+             <img src="${phones.image}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${phoneList.phone_name}</h5>
-            <p>Brand: ${phoneList.brand}<p>
-            <button onclick="seeDetails('${phoneList.slug}')" class="btn btn-primary">See Details</button>
+            <h5 class="card-title">${phones.phone_name}</h5>
+            <p>Brand: ${phones.brand}<p>
+            <button onclick="seeDetails('${phones.slug}')" class="btn btn-primary">See Details</button>
         </div>
         </div>
         
