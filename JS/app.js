@@ -27,6 +27,7 @@ const searchPhone = () => {
         errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
         searchField.value = '';
         mainDiv.innerHTML = '';
+        document.getElementById('show-details').innerHTML='';
         
     }
 
@@ -84,7 +85,7 @@ const seeDetails = (id) => {
         <p>Brand: ${info.brand}<p>
 
             <h6 class="fw-bold">Main Features:</h6>
-            <p>Release Date: ${info.releaseDate?info.releaseDate: 'Coming Soon...'}</p>
+            <p>Launch: ${info.releaseDate?info.releaseDate: 'Coming Soon...'}</p>
             <hr>
             <p>Storage:  ${info.mainFeatures.storage}</p>
             <hr>           
@@ -92,8 +93,18 @@ const seeDetails = (id) => {
             <hr>          
             <p>Chip:  ${info.mainFeatures.chipSet}</p>   
             <hr>        
-            <p>Memory:  ${info.mainFeatures.memory}</p>           
-            
+            <p>Memory:  ${info.mainFeatures.memory}</p> 
+            <hr>          
+            <p><span class="fw-bold">Sensors:</span>  ${info.mainFeatures.sensors}</p>   
+            <hr> 
+        
+            <h6 class">Others:</h6>
+            <p>WLAN:  ${info.others.WLAN?info.others.WLAN:''}</p>            
+            <p>Bluetooth:  ${info.others.Bluetooth?info.others.Bluetooth:''}</p>            
+            <p>GPS:  ${info.others.GPS?info.others.GPS:''}</p>            
+            <p>NFC:  ${info.others.NFC?info.others.NFC:''}</p>            
+            <p>Radio:  ${info.others.Radio?info.others.Radio:''}</p>            
+            <p>USB:  ${info.others.USB?info.others.USB:''}</p>                     
             
         </div>
         </div>
