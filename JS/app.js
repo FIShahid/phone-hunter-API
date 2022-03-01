@@ -2,12 +2,12 @@ const mainDiv = document.getElementById('main-div');
 
 const searchPhone = () => {
     //console.log("button clicked");
-
+    // Get Input Value
     const searchField = document.getElementById('search-field');
     const errorMessege = document.getElementById('error-messege');
     const searchText = searchField.value;
     //console.log(searchText);
-
+    //Error Handling
     if (searchText == 'iphone' || searchText == 'samsung' || searchText == 'oppo' || searchText == 'huawei') {
         //  console.log('Phone Found');
         mainDiv.innerHTML = '';
@@ -16,10 +16,10 @@ const searchPhone = () => {
             .then(res => res.json())
             .then(data => phoneInfo(data.data))
 
-
+        //clear text content
         searchField.value = '';
         errorMessege.innerHTML = '';
-        document.getElementById('show-details').innerHTML='';
+        document.getElementById('show-details').innerHTML = '';
 
     }
 
@@ -27,8 +27,8 @@ const searchPhone = () => {
         errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
         searchField.value = '';
         mainDiv.innerHTML = '';
-        document.getElementById('show-details').innerHTML='';
-        
+        document.getElementById('show-details').innerHTML = '';
+
     }
 
 }
@@ -36,21 +36,22 @@ const searchPhone = () => {
 
 
 const phoneInfo = (phone) => {
-   // console.log(phone);
-   
-   const phoneList = phone.slice(0,20);
+    // console.log(phone);
+
+    const phoneList = phone.slice(0, 20);
     phoneList.forEach(phones => {
         //console.log(phoneList);
+        // showing Search Result
         const div = document.createElement('div');
-        
+
         div.classList.add('col-lg-4')
         div.innerHTML = `
-        <div class="card" style="width: 18rem;">
-             <img src="${phones.image}" class="card-img-top" alt="...">
+        <div class="card shadow p-3 mb-5 bg-body rounded " style="width:300px;">
+             <img  src="${phones.image}" class="card-img-top" style="width:200px" alt="...">
         <div class="card-body">
             <h5 class="card-title">${phones.phone_name}</h5>
-            <p>Brand: ${phones.brand}<p>
-            <button onclick="seeDetails('${phones.slug}')" class="btn btn-primary">See Details</button>
+            <h6 class="">Brand: ${phones.brand}<h6>
+            <button onclick="seeDetails('${phones.slug}')" class="btn btn-info text-dark rounded-pill">See Details</button>
         </div>
         </div>
         
@@ -66,51 +67,52 @@ const seeDetails = (id) => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
         .then(res => res.json())
-         .then(data => showPhone(data.data))
-         
+        .then(data => showPhone(data.data))
+
 }
 
- const showPhone =(info) =>{
-     //console.log(info);
-   
-     mainDiv.innerHTML ='';
-    // phone.forEach(phoneList => {
-       
-     document.getElementById('show-details').innerHTML =`
+const showPhone = (info) => {
+    //console.log(info);
+
+    mainDiv.innerHTML = '';
+    // Single Card Details
+
+    document.getElementById('show-details').innerHTML = `
      
-     <div class="card" style="w-50;">
-             <img  src="${info.image}" class="card-img-top w-25" alt="...">
+     <div class="card shadow p-3 mb-5 bg-body rounded d-flex justify-content-center" style="w-50;">
+             <img  src="${info.image}" class="card-img-top" alt="..."style="width:200px">
         <div class="card-body">
+        <h4>${info.brand}<h4>
         <h5 class="card-title">${info.name}</h5>
-        <p>Brand: ${info.brand}<p>
 
             <h6 class="fw-bold">Main Features:</h6>
-            <p>Launch: ${info.releaseDate?info.releaseDate: 'Coming Soon...'}</p>
+            <br>
+            <p><span class="fw-bold">Launch:  </span> ${info.releaseDate ? info.releaseDate : 'Coming Soon...'}</p>
             <hr>
-            <p>Storage:  ${info.mainFeatures.storage}</p>
+            <p><span class="fw-bold">Storage: </span>  ${info.mainFeatures.storage}</p>
             <hr>           
-            <p>Display:  ${info.mainFeatures.displaySize}</p> 
+            <p><span class="fw-bold">Display: </span>  ${info.mainFeatures.displaySize}</p> 
             <hr>          
-            <p>Chip:  ${info.mainFeatures.chipSet}</p>   
+            <p><span class="fw-bold">ChipSet:  </span>  ${info.mainFeatures.chipSet}</p>   
             <hr>        
-            <p>Memory:  ${info.mainFeatures.memory}</p> 
+            <p><span class="fw-bold">Memory:  </span>${info.mainFeatures.memory}</p> 
             <hr>          
             <p><span class="fw-bold">Sensors:</span>  ${info.mainFeatures.sensors}</p>   
             <hr> 
         
-            <h6 class">Others:</h6>
-            <p>WLAN:  ${info.others.WLAN?info.others.WLAN:''}</p>            
-            <p>Bluetooth:  ${info.others.Bluetooth?info.others.Bluetooth:''}</p>            
-            <p>GPS:  ${info.others.GPS?info.others.GPS:''}</p>            
-            <p>NFC:  ${info.others.NFC?info.others.NFC:''}</p>            
-            <p>Radio:  ${info.others.Radio?info.others.Radio:''}</p>            
-            <p>USB:  ${info.others.USB?info.others.USB:''}</p>                     
-            
+            <h6 class">Others:</h6>          
+            <p><span class="fw-bold">WLAN:  </span>  ${info.others.WLAN ? info.others.WLAN : ''}</p>            
+            <p><span class="fw-bold">Bluetooth:  </span> ${info.others.Bluetooth ? info.others.Bluetooth : ''}</p>            
+            <p><span class="fw-bold">GPS:  </span> ${info.others.GPS ? info.others.GPS : ''}</p>            
+            <p><span class="fw-bold">NFC:  </span>  ${info.others.NFC ? info.others.NFC : ''}</p>            
+            <p><span class="fw-bold">Radio  :</span>${info.others.Radio ? info.others.Radio : ''}</p>            
+            <p><span class="fw-bold">USB:  </span>${info.others.USB ? info.others.USB : ''}</p>                     
+           
         </div>
         </div>
      
      `
-     
 
-        
- }
+
+
+}

@@ -1,38 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./CSS/style.css">
 
     <title>Gadget Galaxy</title>
-  </head>
-  <body>
-    <h1 class="text-center text-success">Gadget Galaxy</h1>
+</head>
+
+<body>
+    <h1 class="text-center text-success mb-3">Gadget Galaxy</h1>
     <div class="container">
-        <div class="input-group mb-3">
-            <input id="search-field" type="text" class="form-control" placeholder="Search Your Desired Phone.. " aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="search-button" onclick="searchPhone()">Search</button>
-          </div>
-
-          <h4 id="error-messege" class=" text-center text-danger"></h4>
-
-          <div id="main-div" class="row"></div>
-
-          <div id="show-details" class="d-flex justify-content-center"></div>
+        <!-- Search-BOX -->
+        <div class="d-flex w-50 mx-auto mb-4 ">
+            <input id="search-field" class="form-control me-2 rounded-pill " type="search"
+                placeholder="Search Your Desired Phone.." aria-label="Search">
+            <button class="btn btn-outline-success rounded-pill" type="button" id="search-button"
+                onclick="searchPhone()">Search</button>
+        </div>
+        <!-- Error Div -->
+        <h4 id="error-messege" class=" text-center text-danger"></h4>
+        <!-- Main Div -->
+        <div id="main-div" class="row"></div>
+        <!-- Details Info Div -->
+        <div id="show-details" class="d-flex justify-content-center"></div>
 
     </div>
 
-   
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-   <script src="./JS/app.js"></script>
-  </body>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="./JS/app.js"></script>
+</body>
+
 </html>
