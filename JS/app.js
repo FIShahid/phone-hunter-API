@@ -34,6 +34,7 @@ const searchPhone = () => {
 
 const phoneInfo = (phone) => {
    // console.log(phone);
+    const twentyPhone = phone.slice(0,20)
     phone.forEach(phoneList => {
         //console.log(phoneList.image);
         const div = document.createElement('div');
@@ -61,29 +62,40 @@ const seeDetails = (id) => {
     fetch(url)
         .then(res => res.json())
          .then(data => showPhone(data.data))
-        
-        //{
-        //     const allPhone =data.data;
-        //     const specificPhone = allPhone.find(phones=> phones.id===id)
-        //     console.log(specificPhone);
-        //     console.log(allPhone);
-
-        // })
+         
 }
 
  const showPhone =(info) =>{
      //console.log(info);
+   
+     mainDiv.innerHTML ='';
+    // phone.forEach(phoneList => {
+       
      document.getElementById('show-details').innerHTML =`
      
-     <div class="card" style="width: 18rem;">
-             <img src="${info.image}" class="card-img-top" alt="...">
+     <div class="card" style="w-50;">
+             <img  src="${info.image}" class="card-img-top w-25" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${info.name}</h5>
-            <p>Brand: ${info.brand}<p>
-            <button onclick="showMore()" class="btn btn-primary">Show More</button>
+        <h5 class="card-title">${info.name}</h5>
+        <p>Brand: ${info.brand}<p>
+
+            <h6 class="fw-bold">Main Features:</h6>
+            <p>Release Date: ${info.releaseDate?info.releaseDate: 'Coming Soon...'}</p>
+            <hr>
+            <p>Storage:  ${info.mainFeatures.storage}</p>
+            <hr>           
+            <p>Display:  ${info.mainFeatures.displaySize}</p> 
+            <hr>          
+            <p>Chip:  ${info.mainFeatures.chipSet}</p>   
+            <hr>        
+            <p>Memory:  ${info.mainFeatures.memory}</p>           
+            
+            
         </div>
         </div>
      
      `
+     
 
+        
  }
