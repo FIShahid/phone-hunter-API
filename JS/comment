@@ -1,12 +1,12 @@
 const mainDiv = document.getElementById('main-div');
 
 const searchPhone = () => {
-
+    //console.log("button clicked");
     // Get Input Value
     const searchField = document.getElementById('search-field');
     const errorMessege = document.getElementById('error-messege');
     const searchText = searchField.value;
-
+    //console.log(searchText);
     //Error Handling
     if (searchText == '' || searchText < 0) {
 
@@ -18,7 +18,7 @@ const searchPhone = () => {
     }
 
     else {
-
+        //  console.log('Phone Found');
         mainDiv.innerHTML = '';
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
         fetch(url)
@@ -30,18 +30,20 @@ const searchPhone = () => {
         errorMessege.innerHTML = '';
         document.getElementById('show-details').innerHTML = '';
 
+
     }
 
 }
 
+
+
 const phoneInfo = (phone) => {
     const errorMessege = document.getElementById('error-messege');
-    // Invalid Phone error Handling
+    // console.log(phone);
     if (phone == 0) {
         errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
 
     }
-
     const phoneList = phone.slice(0, 20);
     phoneList.forEach(phones => {
         //console.log(phoneList);
@@ -78,7 +80,7 @@ const seeDetails = (id) => {
 const showPhone = (info) => {
     //console.log(info);
 
-
+    mainDiv.innerHTML = '';
     // Single Card Details
 
     document.getElementById('show-details').innerHTML = `
@@ -93,26 +95,26 @@ const showPhone = (info) => {
             <br>
             <p><span class="fw-bold">Launch:  </span> ${info?.releaseDate ? info.releaseDate : 'Coming Soon...'}</p>
             <hr>
-            <p><span class="fw-bold">Storage: </span>  ${info?.mainFeatures?.storage ? info.mainFeatures.storage : 'Unspecified'}</p>
+            <p><span class="fw-bold">Storage: </span>  ${info?.mainFeatures?.storage ? info.mainFeatures.storage : 'Data Not Available'}</p>
             <hr>           
-            <p><span class="fw-bold">Display: </span>  ${info?.mainFeatures?.displaySize ? info.mainFeatures.displaySize : 'Unspecified'}</p> 
+            <p><span class="fw-bold">Display: </span>  ${info?.mainFeatures?.displaySize ? info.mainFeatures.displaySize : 'Data Not Available'}</p> 
             <hr>          
-            <p><span class="fw-bold">ChipSet:  </span>  ${info?.mainFeatures?.chipSet ? info.mainFeatures.chipSet : 'Unspecified'}</p>   
+            <p><span class="fw-bold">ChipSet:  </span>  ${info?.mainFeatures?.chipSet ? info.mainFeatures.chipSet : 'Data Not Available'}</p>   
             <hr>        
-            <p><span class="fw-bold">Memory:  </span>${info?.mainFeatures?.memory ? info.mainFeatures.memory : 'Unspecified'}</p> 
+            <p><span class="fw-bold">Memory:  </span>${info?.mainFeatures?.memory ? info.mainFeatures.memory : 'Data Not Available'}</p> 
             <hr>          
-            <p><span class="fw-bold">Sensors:</span>  ${info?.mainFeatures?.sensors ? info.mainFeatures.sensors : 'Unspecified'}</p>   
+            <p><span class="fw-bold">Sensors:</span>  ${info?.mainFeatures?.sensors ? info.mainFeatures.sensors : 'Data Not Available'}</p>   
             <hr> 
         
            <div class="other">
            <h6><span class="fw-bold">Others:</span></h6> 
            <br>         
-           <p><span class="fw-bold">WLAN:  </span>  ${info?.others?.WLAN ? info.others.WLAN : 'Unspecified'}</p>            
-           <p><span class="fw-bold">Bluetooth:  </span> ${info?.others?.Bluetooth ? info.others.Bluetooth : 'Unspecified'}</p>            
-           <p><span class="fw-bold">GPS:  </span> ${info?.others?.GPS ? info.others.GPS : 'Unspecified'}</p>            
-           <p><span class="fw-bold">NFC:  </span>  ${info?.others?.NFC ? info.others.NFC : 'Unspecified'}</p>            
-           <p><span class="fw-bold">Radio  :</span>${info?.others?.Radio ? info.others.Radio : 'Unspecified'}</p>            
-           <p><span class="fw-bold">USB:  </span>${info?.others?.USB ? info.others.USB : 'Unspecified'}</p>                     
+           <p><span class="fw-bold">WLAN:  </span>  ${info?.others?.WLAN ? info.others.WLAN : 'Yes'}</p>            
+           <p><span class="fw-bold">Bluetooth:  </span> ${info?.others?.Bluetooth ? info.others.Bluetooth : 'Yes'}</p>            
+           <p><span class="fw-bold">GPS:  </span> ${info?.others?.GPS ? info.others.GPS : 'Yes'}</p>            
+           <p><span class="fw-bold">NFC:  </span>  ${info?.others?.NFC ? info.others.NFC : 'Yes'}</p>            
+           <p><span class="fw-bold">Radio  :</span>${info?.others?.Radio ? info.others.Radio : 'Yes'}</p>            
+           <p><span class="fw-bold">USB:  </span>${info?.others?.USB ? info.others.USB : 'Yes'}</p>                     
           
            
            </div>
