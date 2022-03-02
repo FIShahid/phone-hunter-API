@@ -8,7 +8,16 @@ const searchPhone = () => {
     const searchText = searchField.value;
     //console.log(searchText);
     //Error Handling
-    if (searchText == 'iphone' || searchText == 'samsung' || searchText == 'oppo' || searchText == 'huawei') {
+    if (searchText == '' || searchText < 0) {
+
+        errorMessege.innerText = "Sorry, Wrong Input"
+        searchField.value = '';
+        mainDiv.innerHTML = '';
+        document.getElementById('show-details').innerHTML = '';
+
+    }
+
+    else {
         //  console.log('Phone Found');
         mainDiv.innerHTML = '';
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -21,13 +30,6 @@ const searchPhone = () => {
         errorMessege.innerHTML = '';
         document.getElementById('show-details').innerHTML = '';
 
-    }
-
-    else {
-        errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
-        searchField.value = '';
-        mainDiv.innerHTML = '';
-        document.getElementById('show-details').innerHTML = '';
 
     }
 
@@ -36,8 +38,12 @@ const searchPhone = () => {
 
 
 const phoneInfo = (phone) => {
+    const errorMessege = document.getElementById('error-messege');
     // console.log(phone);
+    if (phone == 0) {
+        errorMessege.innerText = "Sorry, Your Desired Phone Is Not Found"
 
+    }
     const phoneList = phone.slice(0, 20);
     phoneList.forEach(phones => {
         //console.log(phoneList);
