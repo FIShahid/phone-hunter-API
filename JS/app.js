@@ -87,27 +87,31 @@ const showPhone = (info) => {
 
             <h6 class="fw-bold">Main Features:</h6>
             <br>
-            <p><span class="fw-bold">Launch:  </span> ${info.releaseDate ? info.releaseDate : 'Coming Soon...'}</p>
+            <p><span class="fw-bold">Launch:  </span> ${info?.releaseDate ? info.releaseDate : 'Coming Soon...'}</p>
             <hr>
-            <p><span class="fw-bold">Storage: </span>  ${info.mainFeatures.storage}</p>
+            <p><span class="fw-bold">Storage: </span>  ${info?.mainFeatures?.storage ? info.mainFeatures.storage : 'Data Not Available'}</p>
             <hr>           
-            <p><span class="fw-bold">Display: </span>  ${info.mainFeatures.displaySize}</p> 
+            <p><span class="fw-bold">Display: </span>  ${info?.mainFeatures?.displaySize ? info.mainFeatures.displaySize : 'Data Not Available'}</p> 
             <hr>          
-            <p><span class="fw-bold">ChipSet:  </span>  ${info.mainFeatures.chipSet}</p>   
+            <p><span class="fw-bold">ChipSet:  </span>  ${info?.mainFeatures?.chipSet ? info.mainFeatures.chipSet : 'Data Not Available'}</p>   
             <hr>        
-            <p><span class="fw-bold">Memory:  </span>${info.mainFeatures.memory}</p> 
+            <p><span class="fw-bold">Memory:  </span>${info?.mainFeatures?.memory ? info.mainFeatures.memory : 'Data Not Available'}</p> 
             <hr>          
-            <p><span class="fw-bold">Sensors:</span>  ${info.mainFeatures.sensors}</p>   
+            <p><span class="fw-bold">Sensors:</span>  ${info?.mainFeatures?.sensors ? info.mainFeatures.sensors : 'Data Not Available'}</p>   
             <hr> 
         
-            <h6 class">Others:</h6>          
-            <p><span class="fw-bold">WLAN:  </span>  ${info.others.WLAN ? info.others.WLAN : ''}</p>            
-            <p><span class="fw-bold">Bluetooth:  </span> ${info.others.Bluetooth ? info.others.Bluetooth : ''}</p>            
-            <p><span class="fw-bold">GPS:  </span> ${info.others.GPS ? info.others.GPS : ''}</p>            
-            <p><span class="fw-bold">NFC:  </span>  ${info.others.NFC ? info.others.NFC : ''}</p>            
-            <p><span class="fw-bold">Radio  :</span>${info.others.Radio ? info.others.Radio : ''}</p>            
-            <p><span class="fw-bold">USB:  </span>${info.others.USB ? info.others.USB : ''}</p>                     
+           <div class="other">
+           <h6><span class="fw-bold">Others:</span></h6> 
+           <br>         
+           <p><span class="fw-bold">WLAN:  </span>  ${info?.others?.WLAN ? info.others.WLAN : 'Yes'}</p>            
+           <p><span class="fw-bold">Bluetooth:  </span> ${info?.others?.Bluetooth ? info.others.Bluetooth : 'Yes'}</p>            
+           <p><span class="fw-bold">GPS:  </span> ${info?.others?.GPS ? info.others.GPS : 'Yes'}</p>            
+           <p><span class="fw-bold">NFC:  </span>  ${info?.others?.NFC ? info.others.NFC : 'Yes'}</p>            
+           <p><span class="fw-bold">Radio  :</span>${info?.others?.Radio ? info.others.Radio : 'Yes'}</p>            
+           <p><span class="fw-bold">USB:  </span>${info?.others?.USB ? info.others.USB : 'Yes'}</p>                     
+          
            
+           </div>
         </div>
         </div>
      
